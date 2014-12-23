@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+   
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@cover.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="#f5e6e6" layoutX="31.0" layoutY="134.0" stroke="#402929" strokeDashOffset="10.0" strokeType="OUTSIDE" strokeWidth="10.0" text="Tank War">
+               <font>
+                  <Font name="American Typewriter Bold" size="55.0" />
+               </font>
+            </Text>
+            <Button fx:id="start" layoutX="83.0" layoutY="185.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="131.0" text="START" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
