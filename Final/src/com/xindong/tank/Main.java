@@ -1,4 +1,6 @@
 package com.xindong.tank;
+//Tank images and sound effects collected from the Internet
+
 
 import javafx.application.Application;
 import javafx.application.Platform;
