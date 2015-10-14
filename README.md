@@ -5,5 +5,6 @@
 ![alt tag](https://cloud.githubusercontent.com/assets/4637375/10487954/71a57632-7264-11e5-8210-deb481c4c732.png)
 
 Press ctrl to fire
+
 arrows keys to move
 
