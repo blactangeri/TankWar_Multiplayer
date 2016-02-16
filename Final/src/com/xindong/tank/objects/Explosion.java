@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
-public class Explode {
+public class Explosion {
 	int x, y;
 
 	int type;
@@ -18,61 +18,61 @@ public class Explode {
 
 	private static Image[] imgs1 = {
 
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b1.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b2.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b3.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b4.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b5.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/b6.png")),
 
 	/*
-	 * tk.getImage(Explode.class.getClassLoader().getResource( "images/6.png")),
-	 * tk.getImage(Explode.class.getClassLoader().getResource( "images/7.png")),
-	 * tk.getImage(Explode.class.getClassLoader().getResource( "images/8.png")),
-	 * tk.getImage(Explode.class.getClassLoader().getResource( "images/9.png")),
-	 * tk.getImage(Explode.class.getClassLoader().getResource( "images/10.png"))
+	 * tk.getImage(Explosion.class.getClassLoader().getResource( "images/6.png")),
+	 * tk.getImage(Explosion.class.getClassLoader().getResource( "images/7.png")),
+	 * tk.getImage(Explosion.class.getClassLoader().getResource( "images/8.png")),
+	 * tk.getImage(Explosion.class.getClassLoader().getResource( "images/9.png")),
+	 * tk.getImage(Explosion.class.getClassLoader().getResource( "images/10.png"))
 	 */};
 
 	private static Image[] imgs2 = {
 
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/1.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/2.png")),
-	// tk.getImage(Explode.class.getClassLoader().getResource(
+	// tk.getImage(Explosion.class.getClassLoader().getResource(
 	// "images/3.png")),
 	};
 
 	private static Image[] imgs3 = {
 
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/21.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/22.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/23.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/24.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/25.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/26.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/27.png")),
-			tk.getImage(Explode.class.getClassLoader().getResource(
+			tk.getImage(Explosion.class.getClassLoader().getResource(
 					"images/28.png")), };
 
 	int step = 0;
 
 	private static boolean init = false;
 
-	public Explode(int x, int y, GameClient tc, int type) {
+	public Explosion(int x, int y, GameClient tc, int type) {
 		this.x = x;
 		this.y = y;
 		this.gl = tc;
@@ -90,7 +90,7 @@ public class Explode {
 			}
 
 			if (!live) {
-				gl.explodes.remove(this);
+				gl.explosions.remove(this);
 				return;
 			}
 
@@ -114,7 +114,7 @@ public class Explode {
 			}
 
 			if (!live) {
-				gl.explodes.remove(this);
+				gl.explosions.remove(this);
 				return;
 			}
 
@@ -138,7 +138,7 @@ public class Explode {
 			}
 
 			if (!live) {
-				gl.explodes.remove(this);
+				gl.explosions.remove(this);
 				return;
 			}
 
@@ -161,7 +161,7 @@ public class Explode {
 			}
 
 			if (!live) {
-				gl.explodes.remove(this);
+				gl.explosions.remove(this);
 				return;
 			}
 

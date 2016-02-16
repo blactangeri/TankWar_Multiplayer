@@ -32,12 +32,12 @@ public class GameClient extends Frame {
     AudioClip startMusic = Applet.newAudioClip(getClass().getResource(
             "/sounds/start.wav"));
 
-    Tank myTank = new Tank(700, 700, 0, Direction.STOP, this);
+    public Tank myTank = new Tank(700, 700, 0, Direction.STOP, this);
 
     List<Wall> walls = new ArrayList<Wall>();
-    List<Explode> explodes = new ArrayList<Explode>();
-    List<Missile> missiles = new ArrayList<Missile>();
-    List<Tank> tanks = new ArrayList<Tank>();
+    public List<Explosion> explosions = new ArrayList<Explosion>();
+    public List<Missile> missiles = new ArrayList<Missile>();
+    public List<Tank> tanks = new ArrayList<Tank>();
 
     Image offScreenImage = null;
 
@@ -47,7 +47,7 @@ public class GameClient extends Frame {
     Food f = new Food();
 
     //network
-    NetClient nc = new NetClient();
+    public NetClient nc = new NetClient(this);
 
     public void paint(Graphics g) {
 
@@ -94,8 +94,8 @@ public class GameClient extends Frame {
                 m.draw(g);
         }
 
-        for (int i = 0; i < explodes.size(); i++) {
-            Explode e = explodes.get(i);
+        for (int i = 0; i < explosions.size(); i++) {
+            Explosion e = explosions.get(i);
             e.draw(g);
         }
 
