@@ -1,11 +1,6 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
 
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -15,7 +10,7 @@ import java.util.Random;
 public class Food {
 
 	int x, y, w, h;
-	GameLauncher gl;
+	GameClient gl;
 	private boolean live = true;
 	private static Random r = new Random();
 

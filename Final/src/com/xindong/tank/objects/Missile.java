@@ -1,17 +1,10 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
  
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Missile {
 	public int XSPEED;
@@ -29,7 +22,7 @@ public class Missile {
 	private int type;
 	private boolean live = true;
 
-	private GameLauncher gl;
+	private GameClient gl;
 	
 	//sound
 	AudioClip bigSound = Applet.newAudioClip(getClass().getResource("/sounds/b-explosion.wav"));
@@ -72,7 +65,7 @@ public class Missile {
 		}
 	}
 
-	public Missile(int x, int y, boolean good, Direction dir, GameLauncher gl, int type) {
+	public Missile(int x, int y, boolean good, Direction dir, GameClient gl, int type) {
 		this(x, y, dir, type);
 		this.good = good;
 		this.gl = gl;
@@ -170,8 +163,8 @@ public class Missile {
 			break;
 		}
 
-		if (x < 0 || y < 0 || x > GameLauncher.GAME_WIDTH
-				|| y > GameLauncher.GAME_HEIGHT) {
+		if (x < 0 || y < 0 || x > GameClient.GAME_WIDTH
+				|| y > GameClient.GAME_HEIGHT) {
 			live = false;
 		}
 	}

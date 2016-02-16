@@ -1,6 +1,5 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

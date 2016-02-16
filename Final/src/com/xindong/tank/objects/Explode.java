@@ -1,11 +1,6 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
 
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -17,7 +12,7 @@ public class Explode {
 
 	private boolean live = true;
 
-	private GameLauncher gl;
+	private GameClient gl;
 
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 
@@ -77,7 +72,7 @@ public class Explode {
 
 	private static boolean init = false;
 
-	public Explode(int x, int y, GameLauncher tc, int type) {
+	public Explode(int x, int y, GameClient tc, int type) {
 		this.x = x;
 		this.y = y;
 		this.gl = tc;

@@ -1,20 +1,15 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import java.awt.*;
 
 public class Wall {
 	int x, y, w, h;
-	GameLauncher gl ;
+	GameClient gl ;
 
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	private static Image iron = tk.getImage(Wall.class.getClassLoader().getResource("images/iron.gif")); 
 	
-	public Wall(int x, int y, int w, int h, GameLauncher tc) {
+	public Wall(int x, int y, int w, int h, GameClient tc) {
 		this.x = x;
 		this.y = y;
 		this.w = w;

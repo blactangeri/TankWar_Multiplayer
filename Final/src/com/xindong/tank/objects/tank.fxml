@@ -15,7 +15,7 @@
          <children>
             <ImageView pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@cover.jpg" />
+                  <Image url="@../../../../images/cover.jpg" />
                </image>
             </ImageView>
             <Text fill="#f5e6e6" layoutX="31.0" layoutY="134.0" stroke="#402929" strokeDashOffset="10.0" strokeType="OUTSIDE" strokeWidth="10.0" text="Tank War">

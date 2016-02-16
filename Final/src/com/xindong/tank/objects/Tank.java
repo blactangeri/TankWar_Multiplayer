@@ -1,9 +1,5 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
-import javafx.stage.Stage;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
@@ -22,7 +18,7 @@ public class Tank {
 	public static final int INITIALHP2 = 200;
 	private int HP;
 
-	GameLauncher gl;
+	GameClient gl;
 
 	private int type;
 	private boolean good;
@@ -241,7 +237,7 @@ public class Tank {
 		
 	}
 
-	public Tank(int x, int y, int type, Direction dir, GameLauncher gl) {
+	public Tank(int x, int y, int type, Direction dir, GameClient gl) {
 		this(x, y, type);
 		this.dir = dir;
 		this.gl = gl;
@@ -512,10 +508,10 @@ public class Tank {
 			x = 0;
 		if (y < 30)
 			y = 30;
-		if (x + Tank.WIDTH > GameLauncher.GAME_WIDTH)
-			x = GameLauncher.GAME_WIDTH - Tank.WIDTH;
-		if (y + Tank.HEIGHT > GameLauncher.GAME_HEIGHT)
-			y = GameLauncher.GAME_HEIGHT - Tank.HEIGHT;
+		if (x + Tank.WIDTH > GameClient.GAME_WIDTH)
+			x = GameClient.GAME_WIDTH - Tank.WIDTH;
+		if (y + Tank.HEIGHT > GameClient.GAME_HEIGHT)
+			y = GameClient.GAME_HEIGHT - Tank.HEIGHT;
 		
 		if (type != 0 && type != 5) {
 			Direction[] dirs = Direction.values();

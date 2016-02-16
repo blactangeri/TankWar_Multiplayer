@@ -1,4 +1,4 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 //Tank images and sound effects collected from the Internet
 
 
@@ -6,14 +6,13 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 
 public class Main extends Application {
-	GameLauncher gl = new GameLauncher();
+	GameClient gl = new GameClient();
 	boolean vic = false;
 	boolean run = true;
 

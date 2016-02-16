@@ -1,7 +1,5 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import java.awt.*;
 import java.util.Random;
 
@@ -9,7 +7,7 @@ import java.util.Random;
 
 public class Blood {
 	int x, y, w, h;
-	GameLauncher gl; 
+	GameClient gl;
 	
 	private static Random r = new Random();
 	

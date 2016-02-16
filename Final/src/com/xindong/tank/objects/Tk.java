@@ -1,4 +1,4 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 public class Tk extends Parent {
 	private enum Direction {
 		Left, Right, Up, Down
-	};
+	}
 
 	private Direction direction = Direction.Left;
 	private Direction lastDirection;

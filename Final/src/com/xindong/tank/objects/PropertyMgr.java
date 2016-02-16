@@ -1,4 +1,4 @@
-package com.xindong.tank;
+package com.xindong.tank.objects;
 
 import java.io.IOException;
 import java.util.Properties;
