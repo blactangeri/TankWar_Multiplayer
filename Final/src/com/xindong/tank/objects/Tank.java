@@ -1,5 +1,8 @@
 package com.xindong.tank.objects;
 
+import com.xindong.tank.messages.MissileNewMessage;
+import com.xindong.tank.messages.TankMoveMessage;
+
 import java.applet.Applet;
 import java.applet.AudioClip;
 import java.awt.*;
@@ -237,7 +240,6 @@ public class Tank {
         this.oldX = x;
         this.oldY = y;
         this.type = type;
-
     }
 
     public Tank(int x, int y, int type, Direction dir, GameClient gl) {
@@ -269,7 +271,6 @@ public class Tank {
             XSPEED = 12;
             YSPEED = 12;
         }
-
     }
 
     public void draw(Graphics g) {
@@ -594,6 +595,8 @@ public class Tank {
     }
 
     void locateDirection() {
+        Direction oldDir = this.dir;
+
         if (bL && !bU && !bR && !bD)
             dir = Direction.L;
         else if (bL && bU && !bR && !bD)
@@ -612,6 +615,11 @@ public class Tank {
             dir = Direction.LD;
         else if (!bL && !bU && !bR && !bD)
             dir = Direction.STOP;
+
+        if (oldDir != dir) {
+            TankMoveMessage msg = new TankMoveMessage(x, y, id, dir, ptDir);
+            gl.nc.send(msg);
+        }
     }
 
     public void keyReleased(KeyEvent e) {
@@ -672,9 +680,7 @@ public class Tank {
             gl.missiles.add(m);
             shotSound.play();
             return m;
-
         }
-
     }
 
     public Missile fire(Direction dir) {
@@ -682,35 +688,35 @@ public class Tank {
             return null;
         int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
         int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
+
+        Missile m = null;
+
         if (type == 0) {
-            Missile m = new Missile(x, y, true, dir, this.gl, 1);
+            m = new Missile(x, y, true, dir, this.gl, 1);
             gl.missiles.add(m);
-
             shotSound.play();
-
-            return m;
         }
 
         if (type == 3 || type == 1 || type == 2) {
-            Missile m = new Missile(x, y, false, dir, this.gl, 1);
+            m = new Missile(x, y, false, dir, this.gl, 1);
             gl.missiles.add(m);
             if (type == 0 || type == 5) {
                 shotSound.play();
             }
-            return m;
         }
         if (type == 4) {
-            Missile m = new Missile(x, y, false, dir, this.gl, 2);
+            m = new Missile(x, y, false, dir, this.gl, 2);
             gl.missiles.add(m);
-
-            return m;
         } else {
-            Missile m = new Missile(x, y, true, dir, this.gl, 2);
+            m = new Missile(x, y, true, dir, this.gl, 2);
             gl.missiles.add(m);
             shotSound.play();
-            return m;
-
         }
+
+        MissileNewMessage msg = new MissileNewMessage(m);
+        gl.nc.send(msg);
+
+        return m;
     }
 
     public Rectangle getRect() {

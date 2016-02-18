@@ -31,7 +31,7 @@ public class TankServer {
                 s = ss.accept();
                 DataInputStream dis = new DataInputStream(s.getInputStream());
                 String IP = s.getInetAddress().getHostAddress();
-                int udpPort = s.getPort();
+                int udpPort = dis.readInt();
                 Client c = new Client(IP, udpPort);
                 clients.add(c);
                 DataOutputStream dos = new DataOutputStream(s.getOutputStream());
@@ -83,7 +83,7 @@ public class TankServer {
                 DatagramPacket dp = new DatagramPacket(buf, buf.length);
                 try {
                     ds.receive(dp);
-                    System.out.println("Package received.");
+                    System.out.println("Package received by server.");
                     for (int i = 0; i < clients.size(); ++i) {
                         Client c = clients.get(i);
                         dp.setSocketAddress(new InetSocketAddress(c.IP, c.udpPort));

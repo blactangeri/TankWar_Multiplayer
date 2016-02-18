@@ -24,8 +24,8 @@ public class Missile {
 
     public GameClient gl;
     public int tankId;
+    private static int ID = 0;
     public int id;
-
     //sound
     AudioClip bigSound = Applet.newAudioClip(getClass().getResource("/sounds/b-explosion.wav"));
     AudioClip smallSound = Applet.newAudioClip(getClass().getResource("/sounds/s-explosion.wav"));
@@ -49,6 +49,15 @@ public class Missile {
         missileImage3 = tk.getImage(Missile.class.getClassLoader().getResource("images/bul2.png"));
         //missileImage4 = tk.getImage(Missile.class.getClassLoader().getResource("images/NOR2.png"));
 
+    }
+
+    public Missile(int tankId, int x, int y, Direction dir, int type) {
+        this.tankId = tankId;
+        this.x = x;
+        this.y = y;
+        this.dir = dir;
+        this.type = type;
+        this.id = id++;
     }
 
     public Missile(int x, int y, Direction dir, int type) {
@@ -99,7 +108,7 @@ public class Missile {
             g.drawImage(missileImage3, x + 10, y + 10, null);
         }
         /*
-		switch (dir) {
+        switch (dir) {
 		case L:
 			g.drawImage(imgs.get("L"), x, y, null);
 			break;

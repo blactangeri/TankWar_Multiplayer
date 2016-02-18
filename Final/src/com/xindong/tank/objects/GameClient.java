@@ -1,5 +1,7 @@
 package com.xindong.tank.objects;
 
+import com.xindong.tank.messages.MissileDeadMessage;
+import com.xindong.tank.messages.TankDeadMessage;
 import com.xindong.tank.network.NetClient;
 import com.xindong.tank.network.TankServer;
 
@@ -88,10 +90,18 @@ public class GameClient extends Frame {
             m.hitTank(myTank);
             m.hitWalls(walls);
             m.hitMissiles(missiles);
-            if (!m.isLive())
+
+            if (!m.isLive()) {
                 missiles.remove(m);
-            else
+
+                MissileDeadMessage mdm = new MissileDeadMessage(myTank.id, m.id);
+                nc.send(mdm);
+
+                TankDeadMessage tdm = new TankDeadMessage(myTank.id);
+                nc.send(tdm);
+            } else {
                 m.draw(g);
+            }
         }
 
         for (int i = 0; i < explosions.size(); i++) {
@@ -160,7 +170,6 @@ public class GameClient extends Frame {
     }
 
     private class PaintThread implements Runnable {
-
         public void run() {
             while (true) {
                 repaint();
@@ -174,7 +183,6 @@ public class GameClient extends Frame {
     }
 
     private class KeyMonitor extends KeyAdapter {
-
         public void keyReleased(KeyEvent e) {
             myTank.keyReleased(e);
         }
